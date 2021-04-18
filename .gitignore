@@ -123,3 +123,5 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+ipl-2021-fantasy-game-bot-venv/
