@@ -41,6 +41,7 @@ class IplData:
         else:
             return ''
 
+
     def get_todays_match(self):
         today = date.today()
 
@@ -71,6 +72,7 @@ class IplData:
                 return today_match.iloc[i]
 
         return None
+
 
     def get_today_match_names(self):
 
@@ -108,7 +110,7 @@ class IplData:
             bet_int = int(match_pattern.group('Bet'))
 
             if bet_int < 40:
-                return 'Bet should be greater than 40'
+                return f"{emoji.emojize(':cross_mark:')}Minimum bet is 40"
 
             match = self.get_match(bet_team=final_team_name)
 
@@ -127,8 +129,8 @@ class IplData:
                 money_bag = emoji.emojize(':money_with_wings:')
                 white_check_mark = emoji.emojize(':check_mark_button:')
                 response = f'{white_check_mark} Bet placed! ' \
-                    f'\n\n{money_bag} {final_team_name.lower().title()} *₹{bet_int}*\n\n' \
-                    f'{match_string} {match["Match"].lower().title()}'
+                    f'\n\n{money_bag} {final_team_name.title()} *₹{bet_int}*\n\n' \
+                    f'{match_string} {match["Match"].title()}'
             else:
                 response = 'Error placing your bet. Please try again.'
            # data = [[match, final_team_name, bet_int, profile_name, phone_number]]

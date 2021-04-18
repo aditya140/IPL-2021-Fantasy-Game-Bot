@@ -1,6 +1,7 @@
 from flask import Flask, request
 from twilio.twiml.messaging_response import MessagingResponse
 from ipl_schedule import IplData
+import emoji
 
 app = Flask(__name__)
 
@@ -32,9 +33,12 @@ def bot():
     responded = False
 
     print(phone_number)
-
+    
     if incoming_msg and is_greeting(incoming_msg):
-        output = 'Welcome to the IPL 2021 Fantasy Game Bot. Please enter your bet in this sample format : KKR 40'
+        output = f'{emoji.emojize(":sparkles:")} *Welcome to the IPL 2021 Fantasy Game Bot!*  {emoji.emojize(":sparkles:")}\n\n'\
+        f'{emoji.emojize(":dollar_banknote:")} Sample bet format : _KKR 40_\n\n'\
+        f'{emoji.emojize(":cricket_game:")} Today\'s match : _{IplData().get_today_match_names().title()}_'
+
         msg.body(output)
         responded = True
         return str(resp)
