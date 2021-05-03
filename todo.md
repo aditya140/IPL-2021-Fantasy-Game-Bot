@@ -1,7 +1,6 @@
 # To Do
 
 ## Important
-1. Change Bets
 2. Aggregation Logic
 3. Aggregation chart
 4. Final Result (can be added by the admin)
